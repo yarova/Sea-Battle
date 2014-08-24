@@ -1,0 +1,232 @@
+body { margin: 0; padding: 0; background: url("../images/mm.jpg"); }
+
+.fl { float: left; }
+.fr { float: right; }
+
+.cell {
+    display: inline-block;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    margin: 0 -1px -6px 0;
+}
+
+#pageWrapper {
+    width: 600px;
+    height: 545px;
+    margin: 0 auto;
+    padding: 10px 55px;
+    /*outline: 1px solid black;*/
+}
+
+.numbers {
+    display: inline-block;
+    width: 25px;
+    margin: 0px 0px 0px -27px;
+}
+
+.number, .letter  {
+    font: normal 12px Century Gothic;
+    line-height: 35px;
+    /*border: 1px solid rgba(0, 0, 0, 0.21);*/
+    border: 1px solid transparent;
+}
+
+.letter { text-align: center; }
+.number {
+    margin: -2px 0px 0px 0px;
+    text-align: right;
+}
+
+.field {
+    position: absolute;
+    top: 27px;
+    width: 261px;
+    height: 261px;
+}
+
+.left .cell { border: 1px solid #6F00FF; }
+.right .cell { border: 1px solid #494948; }
+.left { outline: 1px solid #6F00FF; }
+.right { outline: 1px solid #494948; }
+
+#playerField, #enemyField {
+    position: relative;
+    height: 545px;
+}
+
+.ship4, .ship3, .ship2, .ship1 { position: absolute; }
+.ship4 { top: 315px; }
+.ship3 { top: 355px; }
+.ship2 { top: 395px; }
+.ship1 { top: 435px; }
+
+/*.demoShip {
+    -webkit-transition: -webkit-transform 5s ease-in-out;
+    -moz-transition: -moz-transform 5s ease-in-out;
+    -ms-transition: -ms-transform 5s ease-in-out;
+    transition: transform 5s ease-in-out;
+}
+.move { -webkit-transform: rotateZ(90deg); } */
+
+.demoShip.cell { margin-right: -3px; }
+
+#playerField .quadruple:before,
+#playerField .triple:before,
+#playerField .double:before,
+#playerField .single:before,
+.demoShip.quadruple:before,
+.demoShip.triple:before,
+.demoShip.double:before,
+.demoShip.single:before {
+    content: '\2717';
+    position: absolute;
+    font-size: 30px;
+    padding-left: 3px;
+    line-height: 23px;
+}
+
+#playerField .quadruple, .demoShip.quadruple {
+    outline: 1px solid #28A703;
+    color: #28A703;
+    box-shadow: 0 0 7px rgba(40, 167, 3, 0.8);
+}
+#playerField .triple, .demoShip.triple {
+    outline: 1px solid #CC4ABA;
+    color: #CC4ABA;
+    box-shadow: 0 0 7px rgba(204, 74, 186, 0.8);
+}
+#playerField .double, .demoShip.double {
+    outline: 1px solid darkcyan;
+    color: darkcyan;
+    box-shadow: 0 0 7px rgba(3, 50, 202, 0.8);
+}
+
+#playerField .single, .demoShip.single {
+    outline: 1px solid #FF4224;
+    color: #FF4224;
+    box-shadow: 0 0 7px rgba(255, 66, 36, 0.8);
+}
+#playerField .ship, .demoShip { background-color: lightyellow; }
+
+p {
+    position: absolute;
+    left: 130px;
+    margin: 0;
+    font: bold 12px Century Gothic;
+}
+
+#playerField p, #playerField .letter, #playerField .number {
+    color: #6F00FF;
+    font-family: Century Gothic;
+}
+
+#enemyField p, #enemyField .letter, #enemyField .number {
+    color: #494948;
+    font-family: Century Gothic;
+}
+
+.icon-fish:before {
+    content: "\e003";
+    position: relative;
+    top: 4px;
+    padding-right: 45px;
+    color: #017280;
+    font-size: 20px;
+    font-family: icomoon;
+}
+
+.ship4 + p { bottom: 208px; }
+.ship3 + p { bottom: 169px; }
+.ship2 + p { bottom: 130px; }
+.ship1 + p { bottom: 91px; }
+
+.button {
+    position: absolute;
+    top: 450px;
+    background: url("../images/anchor.png") no-repeat;
+    padding: 0;
+    width: 50px;
+    height: 115px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    color: #494948;
+    margin: 20px 105px 0 105px;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform 1s ease-in-out;
+    -moz-transition: -moz-transform 1s ease-in-out;
+    -ms-transition: -ms-transform 1s ease-in-out;
+    transition: transform 1s ease-in-out;
+}
+
+.movingAnchor {
+    -webkit-transform: rotateY(720deg);
+    -moz-transform: rotateY(720deg);
+    -ms-transform: rotateY(720deg);
+    transform: rotateY(720deg);
+}
+
+
+/************** Раненый корабль*************/
+#playerField .icon-damaged:before,
+#enemyField .icon-damaged:before {
+    content: "\e004";
+    font-size: 29px;
+    position: absolute;
+    color: #E70606;
+}
+#playerField .icon-damaged:before {
+    top: 1px;
+    left: -5px;
+}
+#enemyField .icon-damaged:before {
+    top: -2px;
+    left: -2px;
+}
+
+
+
+/************** Раненый корабль КОНЕЦ *************/
+
+
+/************** Убитый корабль *************/
+#playerField .icon-sunken:before, #enemyField .icon-sunken:before {
+    content: "\e000";
+    position: absolute;
+    font-size: 24px;
+    padding-left: 3px;
+    left: 1px;
+    color: #AFAFAF;
+}
+
+/************** Убитый корабль КОНЕЦ *************/
+
+
+/************** Мимо *************/
+.missed:before {
+    content: '\002E';
+    position: absolute;
+    font-size: 27px;
+    line-height: 13px;
+    left: 8px;
+    font-weight: bold;
+    padding-bottom: 12px;
+}
+#enemyField .missed:before { color: #6F00FF; }
+#playerField .missed:before { color: #494948; }
+/************** Мимо КОНЕЦ*************/
+
+
+/************** Обведенный корабль *************/
+#playerField .icon-near-sunken-ship:before, #enemyField .icon-near-sunken-ship:before {
+    content: "\e002";
+    position: absolute;
+    font-size: 27px;
+    top: -1px;
+    left: -1px;
+    color: #AFAFAF;
+}
+
+
+/************** Обведенный корабль КОНЕЦ*************/
